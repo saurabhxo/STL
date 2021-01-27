@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() 
+{
+    vector<int> v;
+    for(int i=1;i<=5;i++)
+    v.push_back(i*10);
+   
+    sort(v.begin(),v.end());
+     v.push_back(50);
+    v.push_back(50);
+    v.push_back(50);
+    v.push_back(50);
+    v.push_back(60);
+    vector<int>::iterator it;
+    for(it=v.begin();it!=v.end();it++)
+    {
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+    int result=binary_search(v.begin(),v.end(),110);
+    if(result>0)
+    cout<<"Number is found"<<endl;
+    else
+    cout<<"Number is not found"<<endl;
+    vector<int>::iterator it2=lower_bound(v.begin(),v.end(),50);
+    vector<int>::iterator it3=upper_bound(v.begin(),v.end(),50);
+    cout<< *it2;
+    cout<<endl<<*it3<<endl;
+    cout<<it3-it2;
+	return 0;
+}
+******************************************************************************************************************************
+10 20 30 40 50 50 50 50 50 60 
+Number is not found
+50
+60
+5
