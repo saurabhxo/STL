@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+void fun(string str)
+{
+    int n,i,j,count;
+    n=str.length();
+    sort(str.begin(), str.end());
+    unordered_map<char,int> m;
+    for(i=0;i<n;i++)
+    {
+        m[str[i]]++;
+    }
+      vector< pair <int,char> > v; 
+    for(auto itr=m.begin();itr!=m.end();itr++)
+    {
+        v.push_back(make_pair(itr->second, itr->first));
+    }
+   sort(v.begin(),v.end());
+   for(auto it=v.begin();it!=v.end();it++)
+   {
+       if(it->first==1)
+       cout<<it->second;
+       else
+       {
+           int num=it->first;
+           while(num--)
+           cout<<it->second;
+       }
+   }
+}
+int main() {
+string str;
+cin>>str;
+fun(str);
+	return 0;
+}
+*************************************************************************************
+Input
+aabcdeee1000134
+o/p
+34bcd11aa000eee
