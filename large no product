@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+string fun(string str1,string str2)
+{
+    if(str1.length()>str2.length())
+    swap(str1,str2);
+    string ans="";
+    int n1=str1.length();
+    int n2=str2.length();
+    reverse(str1.begin(), str1.end()); 
+    reverse(str2.begin(), str2.end()); 
+    for(int i=0;i<n2;i++)
+    { 
+        int carry=0;
+        int j;
+          for(j=0;j<n1;j++)
+          {
+              int mul=(str2[i]-'0')*(str1[j]-'0')+carry;
+              int dig=mul%10;
+              carry=mul/10;
+          if(ans.length()<(i+j+1))
+          {
+             ans.push_back(char(dig+'0')); 
+          }
+          else
+          {
+              int sum=ans[i+j]-'0'+dig;
+               ans[i+j] = sum%10+'0';
+                carry = carry + sum/10;
+          }
+          }
+    if(carry!=0)
+    {
+       if(ans.size()<i+j+1)
+                {
+                    ans.push_back(char(carry+'0')); 
+                }
+                else
+                {
+                    int sum = ans[i+j]-'0' + carry;
+                    ans[i+j] = sum%10+'0';
+                    
+                }
+    }
+    }
+    reverse(ans.begin(), ans.end()); 
+    return ans;
+}
+int main() {
+	string a,b;
+	cin>>a>>b;
+cout<<fun(a,b);
+
+
+	return 0;
+}
+
+*************************************************************************************
+182701982790831274923745 
+93274098213458971289799
+o/p
+17041362686625687137839737747650823808021377255
